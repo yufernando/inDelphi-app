@@ -9,8 +9,8 @@ import flask
 
 from indelphi_app import app
 # from apps import app_single, app_batch, app_gene, app_guide, app_about, app_termsofuse
-from apps import app_single, app_batch, app_guide, app_about, app_termsofuse
-# from apps import app_guide, app_about, app_termsofuse
+# from apps import app_single, app_batch, app_guide, app_about, app_termsofuse
+from apps import app_single, app_guide
 
 ###################################################################
 ###################################################################
@@ -36,9 +36,9 @@ app.title = 'inDelphi'
   [Input('master-url', 'pathname')]
 )
 def display_page(pathname):
-  return app_single.layout
+  # return app_single.layout
   # return app_guide.layout
-  print(pathname)
+  # print(pathname)
   # if pathname is None or pathname == '/':
     # return app_guide.layout
   if pathname is None or pathname == '/':

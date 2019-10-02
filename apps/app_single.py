@@ -1,12 +1,12 @@
-import pickle, copy, os, datetime, subprocess, json
-from collections import defaultdict
-import random
-import numpy as np
-import pandas as pd
-from scipy.stats import entropy
-import time
-from io import StringIO
-from textwrap import dedent
+# import pickle, copy, os, datetime, subprocess, json
+# from collections import defaultdict
+# import random
+# import numpy as np
+# import pandas as pd
+# from scipy.stats import entropy
+# import time
+# from io import StringIO
+# from textwrap import dedent
 
 import dash
 import dash_core_components as dcc
@@ -14,13 +14,13 @@ import dash_html_components as html
 import dash_table_experiments as dt
 # import dash_table as dt
 from dash.dependencies import Input, Output, State
-import plotly.graph_objs as go
-import flask
-import plotly
-from flask_caching import Cache
+# import plotly.graph_objs as go
+# import flask
+# import plotly
+# from flask_caching import Cache
 
 # import inDelphi
-import generalStats
+# import generalStats
 import lib, header
 
 from indelphi_app import app
@@ -38,15 +38,15 @@ from indelphi_app import app
 # else:
 #   subprocess.check_output('rm -rf user-csvs/*', shell = True)
 
-# Set up flask caching
-CACHE_CONFIG = {
-  'CACHE_TYPE': 'redis',
-  'CACHE_REDIS_URL': os.environ.get('REDIS_URL', 'localhost:6379')
-}
-cache = Cache()
-# cache.init_app(app.server, config = CACHE_CONFIG)
-cache.init_app(app.server)
-cache_timeout = 300
+# # Set up flask caching
+# CACHE_CONFIG = {
+#   'CACHE_TYPE': 'redis',
+#   'CACHE_REDIS_URL': os.environ.get('REDIS_URL', 'localhost:6379')
+# }
+# cache = Cache()
+# # cache.init_app(app.server, config = CACHE_CONFIG)
+# cache.init_app(app.server)
+# cache_timeout = 300
 
 # Remove these plotly modebar buttons to limit interactivity
 # modebarbuttons_2d = ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'toggleSpikelines']

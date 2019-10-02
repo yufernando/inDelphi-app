@@ -1,7 +1,7 @@
-import pickle, copy, os, datetime, subprocess
-from collections import defaultdict
-import numpy as np
-import pandas as pd
+# import pickle, copy, os, datetime, subprocess
+# from collections import defaultdict
+# import numpy as np
+# import pandas as pd
 # from scipy.stats import entropy
 # import time
 # from io import StringIO
@@ -13,9 +13,9 @@ import dash_html_components as html
 # import dash_table_experiments as dt
 # import dash_table as dt
 from dash.dependencies import Input, Output, State
-import plotly.graph_objs as go
-import flask
-import plotly
+# import plotly.graph_objs as go
+# import flask
+# import plotly
 
 # import inDelphi
 # import generalStats
@@ -934,7 +934,7 @@ layout = html.Div([
 # #######################################################################
 
 
-@app.server.route('/assets/<resource>')
-def serve_image_assets(resource):
-  # BE VERY CAREFUL NOT TO SERVE ARBITRARY FILES
-  return flask.send_from_directory(os.getcwd() + '/assets/', resource)
+# @app.server.route('/assets/<resource>')
+# def serve_image_assets(resource):
+#   # BE VERY CAREFUL NOT TO SERVE ARBITRARY FILES
+#   return flask.send_from_directory(os.getcwd() + '/assets/', resource)

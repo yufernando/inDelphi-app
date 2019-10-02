@@ -27,7 +27,8 @@ def get_navigation_header(page_nm):
   selected_style['borderBottom'] = '1px solid'
 
   styles = dict()
-  for nm in ['single', 'batch', 'gene', 'guide', 'about']:
+  # for nm in ['single', 'batch', 'gene', 'guide', 'about']:
+  for nm in ['single', 'guide']:
     if page_nm == nm:
       styles[nm] = selected_style
     else:
@@ -53,39 +54,39 @@ def get_navigation_header(page_nm):
           html.Span(
             divider_text,
           ),
-          html.A(
-            'Batch mode',
-            href = 'batch',
-            style = styles['batch'],
-            className = 'dynamicunderline',
-          ),
-          html.Span(
-            divider_text,
-          ),
-          html.A(
-            'Gene mode',
-            href = 'gene',
-            style = styles['gene'],
-            className = 'dynamicunderline',
-          ),
-          html.Span(
-            divider_text,
-          ),
+          # html.A(
+          #   'Batch mode',
+          #   href = 'batch',
+          #   style = styles['batch'],
+          #   className = 'dynamicunderline',
+          # ),
+          # html.Span(
+          #   divider_text,
+          # ),
+          # html.A(
+          #   'Gene mode',
+          #   href = 'gene',
+          #   style = styles['gene'],
+          #   className = 'dynamicunderline',
+          # ),
+          # html.Span(
+          #   divider_text,
+          # ),
           html.A(
             'User guide',
             href = 'guide',
             style = styles['guide'],
             className = 'dynamicunderline',
           ),
-          html.Span(
-            divider_text,
-          ),
-          html.A(
-            'About',
-            href = 'about',
-            style = styles['about'],
-            className = 'dynamicunderline',
-          ),
+        #   html.Span(
+        #     divider_text,
+        #   ),
+        #   html.A(
+        #     'About',
+        #     href = 'about',
+        #     style = styles['about'],
+        #     className = 'dynamicunderline',
+        #   ),
         ],
         style = dict(
           marginBottom = 20,
