@@ -36,28 +36,28 @@ app.title = 'inDelphi'
   [Input('master-url', 'pathname')]
 )
 def display_page(pathname):
-  # return app_single.layout
-  return app_guide.layout
+  return app_single.layout
+  # return app_guide.layout
   print(pathname)
-  if pathname is None or pathname == '/':
-    return app_guide.layout
+  # if pathname is None or pathname == '/':
+    # return app_guide.layout
   if pathname is None or pathname == '/':
     return app_single.layout
   elif pathname[:len('/single')] == '/single':
     return app_single.layout
-  elif pathname[:len('/batch')] == '/batch':
-    return app_batch.layout
+  # elif pathname[:len('/batch')] == '/batch':
+    # return app_batch.layout
   # elif pathname[:len('/gene')] == '/gene':
     # return app_gene.layout
   elif pathname[:len('/guide')] == '/guide':
     return app_guide.layout
-  elif pathname[:len('/about')] == '/about':
-    return app_about.layout
-  elif pathname[:len('/termsofuse')] == '/termsofuse':
-    return app_termsofuse.layout
+  # elif pathname[:len('/about')] == '/about':
+    # return app_about.layout
+  # elif pathname[:len('/termsofuse')] == '/termsofuse':
+    # return app_termsofuse.layout
   else:
-    return app_single.layout
-  #   # return '404'
+    # return app_single.layout
+    return '404'
 
 ###################################################################
 ###################################################################
@@ -80,18 +80,18 @@ for stylesheet in stylesheets:
 # As of 0.22.0, served automatically from /assets/
 
 # Favicon
-@app.server.route('/favicon.ico')
-def favicon():
-  return flask.send_from_directory(os.getcwd() + '/assets/', 'favicon.ico', mimetype = 'image/vnd.microsoft.icon')
+# @app.server.route('/favicon.ico')
+# def favicon():
+#   return flask.send_from_directory(os.getcwd() + '/assets/', 'favicon.ico', mimetype = 'image/vnd.microsoft.icon')
 
 # As of 0.22.0, served automatically from /assets/
 
 # Google analytics tracker
-@app.server.route('/static/gtag.js')
-def serve_gtag():
-  return flask.send_from_directory(css_directory, 'gtag.js')
+# @app.server.route('/static/gtag.js')
+# def serve_gtag():
+  # return flask.send_from_directory(css_directory, 'gtag.js')
 
-app.scripts.append_script({'external_url': '/static/gtag.js'})
+# app.scripts.append_script({'external_url': '/static/gtag.js'})
 
 ###################################################################
 if __name__ == '__main__':

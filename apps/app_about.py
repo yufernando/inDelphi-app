@@ -17,7 +17,7 @@ import plotly.graph_objs as go
 import flask
 import plotly
 
-import inDelphi
+# import inDelphi
 import generalStats
 import lib, header
 
