@@ -9,7 +9,8 @@ from io import StringIO
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_table_experiments as dt
+# import dash_table_experiments as dt
+import dash_table as dt
 from dash.dependencies import Input, Output, State
 import plotly.graph_objs as go
 import flask
@@ -38,7 +39,8 @@ CACHE_CONFIG = {
   'CACHE_REDIS_URL': os.environ.get('REDIS_URL', '')
 }
 cache = Cache()
-cache.init_app(app.server, config = CACHE_CONFIG)
+# cache.init_app(app.server, config = CACHE_CONFIG)
+cache.init_app(app.server)
 cache_timeout = 120
 
 # Remove these plotly modebar buttons to limit interactivity
@@ -94,8 +96,8 @@ layout = html.Div([
       # Datatable
       dt.DataTable(
         id = 'G_table-stats',
-        rows = [{}], # init rows
-        selected_row_indices = [],
+        # rows = [{}], # init rows
+        # selected_row_indices = [],
       ),
 
       dcc.Location(

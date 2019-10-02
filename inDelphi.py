@@ -574,8 +574,8 @@ def init_model(run_iter = 'aax',
   for celltype in ['mESC', 'U2OS', 'HEK293', 'HCT116', 'K562']:
     with open('%s/bp_model_%s.pkl' % (model_dir, celltype), 'rb') as f:
       bp_model[celltype] = pickle.load(f, encoding = 'latin1')
-    with open('%s/rate_model_%s.pkl' % (model_dir, celltype), 'rb') as f:
-      rate_model[celltype] = pickle.load(f, encoding = 'latin1')
+    # with open('%s/rate_model_%s.pkl' % (model_dir, celltype), 'rb') as f:
+      # rate_model[celltype] = pickle.load(f, encoding = 'latin1')
     with open('%s/Normalizer_%s.pkl' % (model_dir, celltype), 'rb') as f:
       normalizer[celltype] = pickle.load(f, encoding = 'latin1')
 

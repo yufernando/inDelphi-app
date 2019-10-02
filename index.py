@@ -2,12 +2,15 @@ import os
 
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_table_experiments as dt
+# import dash_table_experiments as dt
+import dash_table as dt
 from dash.dependencies import Input, Output, State
 import flask
 
 from indelphi_app import app
-from apps import app_single, app_batch, app_gene, app_guide, app_about, app_termsofuse
+# from apps import app_single, app_batch, app_gene, app_guide, app_about, app_termsofuse
+from apps import app_single, app_batch, app_guide, app_about, app_termsofuse
+# from apps import app_guide, app_about, app_termsofuse
 
 ###################################################################
 ###################################################################
@@ -18,7 +21,8 @@ app.layout = html.Div([
 
     # Hidden datatable for proper rendering
     # https://community.plot.ly/t/display-tables-in-dash/4707/40?u=chriddyp
-    html.Div(dt.DataTable(rows=[{}]), style={'display': 'none'})
+    # html.Div(dt.DataTable(rows=[{}]), style={'display': 'none'})
+    html.Div(dt.DataTable(), style={'display': 'none'})
 ])
 
 app.title = 'inDelphi'
@@ -33,15 +37,18 @@ app.title = 'inDelphi'
 )
 def display_page(pathname):
   # return app_single.layout
+  return app_guide.layout
   print(pathname)
+  if pathname is None or pathname == '/':
+    return app_guide.layout
   if pathname is None or pathname == '/':
     return app_single.layout
   elif pathname[:len('/single')] == '/single':
     return app_single.layout
   elif pathname[:len('/batch')] == '/batch':
     return app_batch.layout
-  elif pathname[:len('/gene')] == '/gene':
-    return app_gene.layout
+  # elif pathname[:len('/gene')] == '/gene':
+    # return app_gene.layout
   elif pathname[:len('/guide')] == '/guide':
     return app_guide.layout
   elif pathname[:len('/about')] == '/about':

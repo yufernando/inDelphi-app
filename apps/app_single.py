@@ -12,6 +12,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_table_experiments as dt
+# import dash_table as dt
 from dash.dependencies import Input, Output, State
 import plotly.graph_objs as go
 import flask
@@ -43,7 +44,8 @@ CACHE_CONFIG = {
   'CACHE_REDIS_URL': os.environ.get('REDIS_URL', 'localhost:6379')
 }
 cache = Cache()
-cache.init_app(app.server, config = CACHE_CONFIG)
+# cache.init_app(app.server, config = CACHE_CONFIG)
+cache.init_app(app.server)
 cache_timeout = 300
 
 # Remove these plotly modebar buttons to limit interactivity
@@ -134,7 +136,7 @@ layout = html.Div([
               size = 28,
               value = default_left_text,
               type = 'text',
-              autofocus = True,
+              # autofocus = True,
               style = dict(
                 direction = 'rtl',
                 fontFamily = 'monospace',
@@ -248,7 +250,7 @@ layout = html.Div([
                   size = 5,
                   value = 'NGG',
                   type = 'text',
-                  autofocus = False,
+                  # autofocus = False,
                   style = dict(
                     fontFamily = 'monospace',
                     fontSize = 14,

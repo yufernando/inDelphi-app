@@ -18,11 +18,14 @@ seaborn = "*"
 scipy = "*"
 numpy = "*"
 sklearn = "*"
-scikit-learn = "==0.18.1"
+scikit-learn = "*"
 rq = "*"
 "boto3" = "*"
 flask-caching = "*"
 redis = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
+
+[dev-packages]
+pylint = "*"

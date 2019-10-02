@@ -9,7 +9,8 @@ from io import StringIO
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_table_experiments as dt
+# import dash_table_experiments as dt
+import dash_table as dt
 from dash.dependencies import Input, Output, State
 import plotly.graph_objs as go
 import flask
@@ -35,7 +36,8 @@ CACHE_CONFIG = {
   'CACHE_REDIS_URL': os.environ.get('REDIS_URL', 'localhost:6379'),
 }
 cache = Cache()
-cache.init_app(app.server, config = CACHE_CONFIG)
+# cache.init_app(app.server, config = CACHE_CONFIG)
+cache.init_app(app.server)
 cache_timeout = 300
 
 # Remove these plotly modebar buttons to limit interactivity
@@ -83,8 +85,8 @@ layout = html.Div([
       # Datatable
       dt.DataTable(
         id = 'B_table-stats',
-        rows = [{}], # init rows
-        selected_row_indices = [],
+        # rows = [{}], # init rows
+        # selected_row_indices = [],
       ),
 
       dcc.Location(
@@ -114,8 +116,8 @@ layout = html.Div([
         dcc.Textarea(
           id = 'B_textarea', 
           value = 'GCAATATCGTAGTCCGTCAAATTCAGCCCTGTTATCCCCGGCGTTATGTGTCAAATGGCGTAGAACTGGATTGACTGTTTGACGGTACCTGCTGATCGGTACGGTGACCGAGAATCTGTCGGGCTATGTCACTAATACTTT',
-          minLength = 70,  
-          maxLength = 20000,  
+          # minLength = 70,  
+          # maxLength = 20000,  
           style = dict(
             fontFamily = 'monospace',
             fontSize = 16,
@@ -157,9 +159,9 @@ layout = html.Div([
                     size = 5,
                     value = 'NGG',
                     type = 'text',
-                    minlength = 2,
-                    maxlength = 6,
-                    autofocus = True,
+                    # minlength = 2,
+                    # maxlength = 6,
+                    # autofocus = True,
                     style = dict(
                       fontSize = 15,
                       height = '36px',
@@ -376,7 +378,7 @@ layout = html.Div([
                     dcc.Input(
                       id = 'B_adv_position_of_interest',
                       type = 'text',
-                      inputmode = 'numeric',
+                      # inputmode = 'numeric',
                       placeholder = '#',
                       min = 1,
                       step = 1,
@@ -416,7 +418,7 @@ layout = html.Div([
                     dcc.Input(
                       id = 'B_adv_delstart',
                       type = 'text',
-                      inputmode = 'numeric',
+                      # inputmode = 'numeric',
                       placeholder = '#',
                       min = 1,
                       step = 1,
@@ -430,7 +432,7 @@ layout = html.Div([
                     dcc.Input(
                       id = 'B_adv_delend',
                       type = 'text',
-                      inputmode = 'numeric',
+                      # inputmode = 'numeric',
                       placeholder = '#',
                       min = 1,
                       step = 1,
